@@ -29,7 +29,7 @@ void loop()
          Serial.print(" LON=");
          Serial.print(flon, 6);
          Serial.print(" velocidad=");
-         Serial.print(speed, 6);
+         Serial.println(speed, 6);
       }
     }
 }
