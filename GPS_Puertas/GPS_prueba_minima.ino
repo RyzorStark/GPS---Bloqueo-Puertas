@@ -21,12 +21,15 @@ void loop()
       char c = Serial1.read();   //Se lee el puerto serial del GPS (Serial1) 
       if (gps.encode(c)){        //se pasa la variable C al gps 
          
-      unsigned long age;
-      gps.f_get_position(&flat, &flon, &age); //se le pide al GPS la posicion
-      Serial.print("LAT=");      //Se muestran los datos en el serial del PC (SERIAL solo)
-      Serial.print(flat, 6);
-      Serial.print(" LON=");
-      Serial.println(flon, 6);
+         unsigned long age;
+         gps.f_get_position(&flat, &flon, &age); //se le pide al GPS la posicion
+         long speed=gps.f_speed_kmph();
+         Serial.print("LAT=");      //Se muestran los datos en el serial del PC (SERIAL solo)
+         Serial.print(flat, 6);
+         Serial.print(" LON=");
+         Serial.print(flon, 6);
+         Serial.print(" velocidad=");
+         Serial.print(speed, 6);
       }
     }
 }
